@@ -20,6 +20,6 @@ public func CLIInput<T>(_ type: T.Type) -> T {
         guard let toReturn: T = Bool(input!.lowercased()) as? T else { return false as! T}
         return toReturn
     default:
-        return "as" as! T
+        return "" as! T
     }
 }
