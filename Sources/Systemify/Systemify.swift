@@ -19,6 +19,9 @@ public func CLIInput<T>(_ type: T.Type) -> T {
     case is Bool.Type, is Bool?.Type:
         guard let toReturn: T = Bool(input!.lowercased()) as? T else { return false as! T}
         return toReturn
+    case is Array<Any>.Type, is Array<Any>?.Type:
+        guard let toReturn: T = Array(input!) as? T else { return Array<Any>() as! T}
+        return toReturn
     default:
         return "as" as! T
     }
