@@ -1,6 +1,6 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+import Foundation
 
+// int/?,string/?,double/?,float/?,bool/?
 public func CLIInput<T>(_ type: T.Type) -> T {
     let input = readLine()
     switch type.self {
@@ -21,5 +21,29 @@ public func CLIInput<T>(_ type: T.Type) -> T {
         return toReturn
     default:
         return "" as! T
+    }
+}
+
+public struct FileSystem {
+    var currentPath: URL = URL("")!
+    
+    func cd(path: String) {
+        
+    }
+    
+    func ls() {
+        
+    }
+    
+    func mkdir(name: String) {
+        
+    }
+    
+    func rm(name: String, isFolder: Bool = false) {
+        
+    }
+    
+    func touch(name: String) {
+        
     }
 }
