@@ -30,8 +30,8 @@ public struct CLIInput_old {
 
 public func CLIInput<T>(_ type: T) -> T {
     var input = readLine() ?? ""
-    switch type {
-    case is Int:
+    switch type.self {
+    case is Int.Type:
         return Int(input) as! T
     case is Double:
         return "as" as! T
