@@ -1,41 +1,27 @@
 import Foundation
 
-public enum CLIInputKind<T> {
-    case int
-    case optionalInt
-    case string
-    case optionalString
-    case character
-    case optionalCharacter
-    case double
-    case optionalDouble
-    case float
-    case optionalFloat
-    case bool
-    case optionalBool
-}
-
-
-public func CLIInput<T>(_ type: CLIInputKind<T>) -> T {
+public func CLIInput<T>(_ type: T.Type) -> T {
     let input = readLine()
-    switch type {
-    case .int, .optionalInt:
+    switch type.self {
+    case is Int.Type, is Int?.Type:
         guard let toReturn: T = Int(input!) as? T else { return 0 as! T}
         return toReturn
-    case .string, .optionalString:
+    case is String.Type, is String?.Type:
         guard let toReturn: T = input as? T else { return "" as! T}
         return toReturn
-    case .character, .optionalCharacter:
+    case is Character.Type, is Character?.Type:
         guard let toReturn: T = Character(input!) as? T else { return "" as! T}
         return toReturn
-    case .double, .optionalDouble:
+    case is Double.Type, is Double?.Type:
         guard let toReturn: T = Double(input!) as? T else { return Double(0) as! T}
         return toReturn
-    case .float, .optionalFloat:
+    case is Float.Type, is Float?.Type:
         guard let toReturn: T = Float(input!) as? T else { return Float(0) as! T}
         return toReturn
-    case .bool, .optionalBool:
+    case is Bool.Type, is Bool?.Type:
         guard let toReturn: T = Bool(input!.lowercased()) as? T else { return false as! T}
         return toReturn
+    default:
+        return "" as! T
     }
 }
