@@ -1,16 +1,16 @@
 import Foundation
 
 public enum CLIInputTypes<T> {
-    case int(Int)
-    case intOptional(Int?)
-    case string(String)
-    case stringOptional(String?)
-    case double(Double)
-    case doubleOptional(Double?)
-    case float(Float)
-    case floatOptional(Float?)
-    case bool(Bool)
-    case boolOptional(Bool?)
+    case int
+    case intOptional
+    case string
+    case stringOptional
+    case double
+    case doubleOptional
+    case float
+    case floatOptional
+    case bool
+    case boolOptional
 }
 
 public func CLIInput<T>(_ type: CLIInputTypes<T>) -> T {
