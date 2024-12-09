@@ -9,12 +9,14 @@ public func CLIInput<T>(_ type: T.Type) -> T {
     case is String.Type, is String?.Type:
         if input.isEmpty {
             guard let toReturn: T = nil else { return "" as! T}
+            return toReturn
         }
         guard let toReturn: T = Character(input) as? T else { return "" as! T}
         return toReturn
     case is Character.Type, is Character?.Type:
         if input.isEmpty {
             guard let toReturn: T = nil else { return " " as! T}
+            return toReturn
         }
         guard let toReturn: T = Character(input) as? T else { return " " as! T}
         return toReturn
